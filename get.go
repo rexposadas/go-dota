@@ -4,13 +4,24 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 // Makes a GET call to the API.
-func Get(path string) ([]byte, error) {
-	url := fmt.Sprintf("%s%s", URL, path)
+func Get(path string, params *url.Values) ([]byte, error) {
 
-	resp, err := http.Get(url)
+	base := fmt.Sprintf("%s%s", URL, path)
+
+	u, err := url.Parse(base)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil && len(*params) > 0 {
+		u.RawQuery = params.Encode()
+	}
+
+	resp, err := http.Get(u.String())
 	if err != nil {
 		return nil, err
 	}
