@@ -2,10 +2,9 @@ package main
 
 import "log"
 
-
 func main() {
 
-	b, err := PlayersByRank()
+	b, err := Player(226274743)
 	if err != nil {
 		log.Printf("%s", err)
 	}
