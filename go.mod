@@ -1,3 +1,3 @@
-module github.com/rexposadas/go-dota
+module go-dota
 
 go 1.17

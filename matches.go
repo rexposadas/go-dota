@@ -1,20 +1,13 @@
 package main
 
 import (
+	"api"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 )
 
-// Matches fetches matches by id.
-func Matches(id int) ([]byte, error) {
+// Match fetches matches by id.
+func Match(id int) ([]byte, error) {
+	url := fmt.Sprintf("/matches/%d", id)
 
-	url := fmt.Sprintf("https://api.opendota.com/api/matches/%d", id)
-	resp, err := http.Get(url)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-
-	return ioutil.ReadAll(resp.Body)
+	return api.Get(url)
 }
