@@ -4,7 +4,7 @@ import "log"
 
 func main() {
 
-	b, err := Player(226274743)
+	b, err := PlayerRating(226274743)
 	if err != nil {
 		log.Printf("%s", err)
 	}
