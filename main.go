@@ -5,7 +5,7 @@ import "log"
 
 func main() {
 
-	b, err := Match(271145478)
+	b, err := PlayersByRank()
 	if err != nil {
 		log.Printf("%s", err)
 	}
