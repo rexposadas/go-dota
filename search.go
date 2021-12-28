@@ -1,10 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/url"
+)
+
+const (
+	SearchPath = "search"
+)
 
 // Search fetches matches by id.
 func Search(name string) ([]byte, error) {
-	path := fmt.Sprintf("/search/%d", name)
+	path := fmt.Sprintf("/%s", SearchPath)
 
-	return Get(path, nil)
+	params := url.Values{}
+	params.Add("q", name)
+
+	return Get(path, params)
 }

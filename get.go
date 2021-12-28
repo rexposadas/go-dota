@@ -8,7 +8,7 @@ import (
 )
 
 // Makes a GET call to the API.
-func Get(path string, params *url.Values) ([]byte, error) {
+func Get(path string, params url.Values) ([]byte, error) {
 
 	base := fmt.Sprintf("%s%s", URL, path)
 
@@ -17,7 +17,7 @@ func Get(path string, params *url.Values) ([]byte, error) {
 		return nil, err
 	}
 
-	if params != nil && len(*params) > 0 {
+	if params != nil && len(params) > 0 {
 		u.RawQuery = params.Encode()
 	}
 
