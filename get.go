@@ -8,7 +8,7 @@ import (
 
 // Makes a GET call to the API.
 func Get(path string) ([]byte, error) {
-	url := fmt.Sprintf("%s/%s", URL, path)
+	url := fmt.Sprintf("%s%s", URL, path)
 
 	resp, err := http.Get(url)
 	if err != nil {

@@ -2,10 +2,10 @@ package main
 
 import "log"
 
-
 func main() {
 
-	b, err := Match(271145478)
+	// b, err := ProPlayers(226274743)
+	b, err := PublicMatches()
 	if err != nil {
 		log.Printf("%s", err)
 	}
